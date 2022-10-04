@@ -1,5 +1,5 @@
 #' Assign environment variables to a list
-#' 
+#'
 #' A function that creates a list with each element in the environment as a list slot
 #'
 #' @param list__ - the list you want to affix objects to slots in
@@ -9,7 +9,7 @@
 #' @seealso [magrittr::inset2()]
 #' @export
 #' @md
-generic_assignment <- function(list__, element_type, element_value){
+generic_assignment <- function(list__, element_type, element_value) {
   list__[[get(element_type, parent.frame)]] <- element_value
   return(list__)
 }

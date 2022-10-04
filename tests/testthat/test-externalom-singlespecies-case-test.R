@@ -66,7 +66,7 @@ test_that(
 
     # Maturity
     maturity <- new(r4mas$Maturity)
-    maturity$values <- om_input$mat.age 
+    maturity$values <- om_input$mat.age
 
     # Natural Mortality
     natural_mortality <- new(r4mas$NaturalMortality)
@@ -185,7 +185,7 @@ test_that(
 
     # Build the MAS model
     mas_model <- new(r4mas$MASModel)
-    mas_model$compute_variance_for_derived_quantities<-FALSE
+    mas_model$compute_variance_for_derived_quantities <- FALSE
     mas_model$nyears <- nyears
     mas_model$nseasons <- nseasons
     mas_model$nages <- nages

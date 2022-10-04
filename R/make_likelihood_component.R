@@ -7,21 +7,21 @@
 #' @param nyears number of years for each likelihood component
 #' @return
 
-make_likelihood_component <- function(ids, models, lambdas, parameters=NA, nyears){
+make_likelihood_component <- function(ids, models, lambdas, parameters = NA, nyears) {
   likelihood_list <- vector("list")
-  for(i in 1:length(ids)){
+  for (i in 1:length(ids)) {
     likelihood_list[[i]] <- vector("list")
     likelihood_list[[i]]$id <- ids[i]
     likelihood_list[[i]]$model <- models[i]
     dimensions <- length(lambdas[[i]])
-    if(dimensions==nyears){
+    if (dimensions == nyears) {
       likelihood_list[[i]]$lambda$years <- nyears
       likelihood_list[[i]]$lambda$values <- lambdas[[i]]
-    } else{
+    } else {
       break("Error: weighting beyond per-year is not implemented yet.")
     }
 
-    if(length(grep("dirichlet",models[i]))>0){
+    if (length(grep("dirichlet", models[i])) > 0) {
       likelihood_list$parameters <- parameters
     }
   }
